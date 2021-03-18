@@ -1,0 +1,31 @@
+<%- include("header") -%>
+
+<!-- <h1>New ToDo</h1>
+<form action="/items" method="POST" autocomplete="off">
+  <input type="text" name="item">
+  <button type="submit">Save New Skill</button>
+</form> -->
+<a href="/items">All Todo</a>
+<h2>Enter a ToDo item</h2>
+<form action="/items" method="POST">
+  <label
+    >Title:
+    <!-- name atribute will be passed in json object req.body -->
+    <input type="text" placeholder="enter your todo" name="title" /> </label
+  ><br />
+  <label>Detail: <textarea name="detail"></textarea></label><br />
+  <label
+    >Priority
+    <select name="priority">
+      <option value="Urgent">Urgent</option>
+      <option value="High">High</option>
+      <option value="Prefered">Prefered</option>
+      <option value="Standard">Standard</option>
+    </select> </label
+  ><br />
+
+  <label>Now Showing: <input type="date" name="deadline" /> </label><br />
+  <input type="submit" value="Add ToDo" />
+</form>
+
+<%- include("footer") -%>

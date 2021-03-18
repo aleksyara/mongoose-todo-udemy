@@ -1,0 +1,29 @@
+<%- include("header") -%>
+<div class="box" id="heading">
+  <h1><%= listTitle %></h1>
+</div>
+<div class="box" id="heading">
+  <a href="/items/new">Add new items to do.</a>
+</div>
+<div class="box">
+  <!-- looping over newListItems -->
+  <% allItems.forEach((item) => { %>
+
+  <div class="item">
+    <!-- <input type="checkbox" /> -->
+    <p><%= item.title %></p>
+    <p><%= item.detail %></p>
+    <p><%= item.priority%></p>
+  </div>
+  <% }) %>
+  <!-- <form action="/items" method="post" class="item">
+    <input
+      type="text"
+      name="newTodo"
+      placeholder="New Item"
+      autocomplete="off"
+    />
+    <button type="submit" name="list" value="<%= listTitle %>">+</button>
+  </form>
+</div> -->
+<%- include("footer") -%>
