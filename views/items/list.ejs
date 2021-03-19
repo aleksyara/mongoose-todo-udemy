@@ -8,23 +8,16 @@
 <div class="box">
   <!-- looping over newListItems -->
   <% allItems.forEach((item) => { %>
+  <form action="/items/<%= item._id %>?_method=DELETE" method="POST">
+    <div class="item">
+      <button type="submit" class="delete-button">X</button>
+    </div>
+  </form>
 
   <div class="item">
-    <!-- <input type="checkbox" /> -->
     <p><%= item.title %></p>
-    <p><%= item.detail %></p>
     <p><%= item.priority%></p>
     <a href="/items/<%= item._id%>">Details</a>
   </div>
-  <% }) %>
-  <!-- <form action="/items" method="post" class="item">
-    <input
-      type="text"
-      name="newTodo"
-      placeholder="New Item"
-      autocomplete="off"
-    />
-    <button type="submit" name="list" value="<%= listTitle %>">+</button>
-  </form>
-</div> -->
-<%- include("footer") -%>
+  <% }) %> <%- include("footer") -%>
+</div>

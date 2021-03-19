@@ -1,6 +1,8 @@
 const Item = require("../models/item");
 const date = require("../data");
 const item = require("../models/item");
+const { response } = require("express");
+// const item = require("../models/item");
 
 // read all data
 const index = function (req, res) {
@@ -48,10 +50,34 @@ function create(req, res) {
   });
 }
 
-// function deleteOne(req, res) {
-//   console.log(req.params, "<-------params in delete")
-//   Item.delete(req.params.id);
-//   res.redirect('/items')
+function deleteOne(req, res) {
+
+  Item.deleteOne(req.params._id, function(err, response){
+    if (err) return res.status(500).send(err);
+      console.log("this is res -->>", response);
+      console.log("this is err ->>>>", err)
+      res.redirect('/items');
+  });
+  // console.log("req.body", req.body);
+  // Item.findByIdAndRemove(req.params._id, (err, itemToRemove) => {
+  //   if (err) return res.status(500).send(err);
+  //   const response = {
+  //     message: "items successfully deleted",
+  //     id: item._id
+  //   };
+  //   res.redirect('/items');
+  // });
+}
+// {
+//   console.log('Chekpoint 1');
+//   // console.log('req.body -->', req.body);
+//   // console.log(req.params, "<-------params in delete")
+//   // console.log('req.params._id', req.params._id);
+
+//   // // Item.findById()
+
+//   // Item.delete(req.params._id);
+//   res.redirect('/')
 // }
 
 // function updateSkills(req, res) {
@@ -64,6 +90,6 @@ module.exports = {
   show,
   new: newSkill,
   create,
-  // delete: deleteOne,
+  delete: deleteOne,
   // update: updateSkills
 };

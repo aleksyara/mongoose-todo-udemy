@@ -4,7 +4,7 @@ body {
 }
 
 a {
-  color: #00B7FF;
+  color: #00b7ff;
 }
 
 html {
@@ -102,4 +102,10 @@ footer {
   color: white;
   color: rgba(0, 0, 0, 0.5);
   text-align: center;
+}
+
+.delete-button {
+  width: 30px;
+  font-size: small;
+  min-height: 30px;
 }
